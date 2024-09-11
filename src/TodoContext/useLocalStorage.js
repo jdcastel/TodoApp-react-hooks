@@ -8,14 +8,16 @@ function useLocalStorage(itemName, initialValue) {
   React.useEffect(() => {
     setTimeout(() => {
       try {
+        //get what i stored in local storage by the TODOS_V1 key
         const localStorageItem = localStorage.getItem(itemName);
     
         let parsedItem;
-  
+        //* if no data stores set the initial value
         if (!localStorageItem) {
           localStorage.setItem(itemName, JSON.stringify(initialValue));
           parsedItem = initialValue;
         } else {
+          //* if data exist converts into a parse JSON object
           parsedItem = JSON.parse(localStorageItem);
           setItem(parsedItem);
         }
