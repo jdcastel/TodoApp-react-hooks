@@ -1,3 +1,9 @@
+# React Topics in this project
+React portals
+React context 
+Local storage
+Custom Hooks
+
 # Repositorio base del Curso de Introducción a React.js en Platzi
 
 ¡Hola, Platzinauta!
