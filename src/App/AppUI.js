@@ -8,6 +8,9 @@ import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoContext } from '../TodoContext';
+import Modal from '../Modal';
+import { TodoForm }  from '../TodoForm';
+
 
 function AppUI() {
 
@@ -16,7 +19,9 @@ function AppUI() {
     error,
     searchedTodos,
     completeTodo,
-    deleteTodo
+    deleteTodo,
+    openModal,
+    setOpenModal,
   } = useContext(TodoContext);
 
   return (
@@ -48,7 +53,18 @@ function AppUI() {
           ))}
         </TodoList>
     
-      <CreateTodoButton />
+      <CreateTodoButton setOpenModal={setOpenModal}/>
+
+      {/*! Create a Modal component with reactDom.createPortal 
+          getbyid the new div next to the root
+          export in public the states inside the TodoContext */}
+
+      {openModal && (
+        <Modal>
+          {/* Hola soy el portal modal de React */}
+          <TodoForm/>
+        </Modal>
+      )}
     </>
   );
 }
